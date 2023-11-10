@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: Adapt
+## Notes: Changes static portraits to animated models
+## SavedVariables: Adapt_Settings
+localization.lua
+Adapt.lua
+Adapt.xml

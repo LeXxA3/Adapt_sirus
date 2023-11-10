@@ -1,0 +1,254 @@
+<Ui>
+
+	<Frame name="AdaptFrame" hidden="true">
+		<Scripts>
+			<OnLoad>
+				Adapt.OnLoad(self)
+			</OnLoad>
+			<OnEvent>
+				Adapt.OnEvent(self,event)
+			</OnEvent>
+		</Scripts>
+	</Frame>
+
+	<!-- Option templates -->
+
+	<CheckButton name="AdaptOptionsCheckButtonTemplate" inherits="InterfaceOptionsCheckButtonTemplate" virtual="true">
+		<Scripts>
+			<OnClick>
+				Adapt.OptionsOnClick(self)
+			</OnClick>
+		</Scripts>
+	</CheckButton>
+	
+	
+	<Frame name="AdaptOptionsListTemplate" virtual="true">
+		<Size x="300" y="22"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentText" font="GameFontHighlight" justifyH="LEFT" justifyV="CENTER" text="TargetofTargetPortrait">
+					<Size x="262" y="24"/>
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset x="30" y="0"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="$parentCheckButton" inherits="UICheckButtonTemplate">
+				<Size>
+					<AbsDimension x="24" y="24"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT"/>
+				</Anchors>
+				<HitRectInsets>
+					<AbsInset left="0" right="-200" top="0" bottom="0"/>
+				</HitRectInsets>
+				<CheckedTexture file="Interface\RAIDFRAME\ReadyCheck-NotReady"/>
+				<Scripts>
+					<OnClick>
+						Adapt.OptionsListOnClick(self)
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+		</Frames>
+		<HighlightTexture file="Interface\Buttons\CheckButtonHilight" alphaMode="ADD"/>
+	</Frame>
+
+	<!-- Options panel -->
+
+	<Frame name="AdaptOptions" hidden="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentTitle" font="GameFontNormalLarge" justifyH="LEFT" justifyV="TOP" text="Adapt">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="16" y="-16"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentVersion" font="GameFontNormalSmall" justifyH="LEFT" justifyV="BOTTOM">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentTitle" relativePoint="BOTTOMRIGHT">
+							<Offset x="4" y="1"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSubText" font="GameFontHighlightSmall" nonspacewrap="true" maxLines="3" justifyH="LEFT" justifyV="TOP">
+					<Size x="0" y="32"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTitle" relativePoint="BOTTOMLEFT">
+							<Offset x="0" y="-8"/>
+						</Anchor>
+						<Anchor point="RIGHT">
+							<Offset x="-32" y="0"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentListDescription" font="GameFontHighlightSmall" nonspacewrap="true" maxLines="3" justifyH="LEFT" justifyV="TOP">
+					<Size x="0" y="32"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTitle" relativePoint="BOTTOMLEFT">
+							<Offset x="5" y="-180"/>
+						</Anchor>
+						<Anchor point="RIGHT">
+							<Offset x="-32" y="0"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<Texture name="$parentPortrait">
+					<Size x="64" y="64"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT">
+							<Offset x="-48" y="-76"/>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<FontString name="$parentListHeader" font="GameFontNormal" justifyH="LEFT" justifyV="CENTER">
+					<Size x="250" y="20"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentListDescription" relativePoint="BOTTOMLEFT">
+							<Offset x="36" y="-8"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentPortraitBorder" file="Interface\Addons\Adapt\CircleBorder">
+					<Size x="70" y="70"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentPortrait">
+							<Offset x="-3" y="3"/>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="AdaptOptionsCheckButtonSquare" inherits="AdaptOptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentSubText" relativePoint="BOTTOMLEFT">
+						<Offset x="-2" y="2"/>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="AdaptOptionsCheckButtonTransparent" inherits="AdaptOptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsCheckButtonSquare" relativePoint="BOTTOMLEFT">
+						<Offset x="0" y="-2"/>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="AdaptOptionsCheckButtonFullModel" inherits="AdaptOptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsCheckButtonTransparent" relativePoint="BOTTOMLEFT">
+						<Offset x="0" y="-2"/>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			
+			<CheckButton name="AdaptOptionsCheckButtonBackColor" inherits="AdaptOptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsCheckButtonFullModel" relativePoint="BOTTOMLEFT">
+						<Offset x="0" y="-2"/>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			
+			<Frame name="AdaptOptionsList1" inherits="AdaptOptionsListTemplate" id="1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentListDescription" relativePoint="BOTTOMLEFT">
+						<Offset x="6" y="-32"/>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="AdaptOptionsList2" inherits="AdaptOptionsListTemplate" id="2">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsList1" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+			</Frame>
+			<Frame name="AdaptOptionsList3" inherits="AdaptOptionsListTemplate" id="3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsList2" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+			</Frame>
+			<Frame name="AdaptOptionsList4" inherits="AdaptOptionsListTemplate" id="4">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsList3" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+			</Frame>
+			<Frame name="AdaptOptionsList5" inherits="AdaptOptionsListTemplate" id="5">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsList4" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+			</Frame>
+			<Frame name="AdaptOptionsList6" inherits="AdaptOptionsListTemplate" id="6">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsList5" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+			</Frame>
+			<Frame name="AdaptOptionsList7" inherits="AdaptOptionsListTemplate" id="7">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsList6" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+			</Frame>
+
+			<ScrollFrame name="AdaptOptionsListScrollFrame" inherits="FauxScrollFrameTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AdaptOptionsList1">
+						<Offset>
+							<AbsDimension x="0" y="-2"/>
+						</Offset>
+					</Anchor>
+					<Anchor point="BOTTOMRIGHT" relativeTo="AdaptOptionsList7">
+						<Offset>
+							<AbsDimension x="-2" y="1"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture file="Interface\ChatFrame\ChatFrameBackground">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="6" y="0"/>
+									</Offset>
+								</Anchor>
+								<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT">
+									<Offset>
+										<AbsDimension x="22" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<Gradient>
+								<MinColor r="0" g="0" b="0" a="0"/>
+								<MaxColor r="0" g="0" b="0" a="1"/>
+							</Gradient>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnVerticalScroll>
+						FauxScrollFrame_OnVerticalScroll(self, offset, 22, Adapt.OptionsListScrollFrameUpdate)
+					</OnVerticalScroll>
+					<OnShow>
+						Adapt.OptionsListScrollFrameUpdate()
+					</OnShow>
+				</Scripts>
+			</ScrollFrame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				Adapt.OptionsOnLoad(self)
+			</OnLoad>
+			<OnShow>
+				Adapt.OptionsOnShow(self)
+			</OnShow>
+		</Scripts>
+	</Frame>
+
+</Ui>
